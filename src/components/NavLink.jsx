@@ -1,21 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-function Home() {
-  return (
-    <div>
-      <h1>Home!</h1>
-    </div>
-  );
-}
-
-function App() {
-  return <Home />;
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));
-import React from "react";
-import ReactDOM from "react-dom";
 /* Add NavLink to import */
 import {
   BrowserRouter as Router,
@@ -63,16 +47,6 @@ function Navbar() {
         About
       </NavLink>
       <NavLink
-        to="/message"
-        exact
-        style={linkStyles}
-        activeStyle={{
-          background: "darkblue",
-        }}
-      >
-        Message
-      </NavLink>
-      <NavLink
         to="/login"
         exact
         style={linkStyles}
@@ -81,17 +55,6 @@ function Navbar() {
         }}
       >
         Login
-      </NavLink>
-
-      <NavLink
-        to="/signup"
-        exact
-        style={linkStyles}
-        activeStyle={{
-          background: "darkblue",
-        }}
-      >
-        SignUp
       </NavLink>
     </div>
   );
@@ -122,37 +85,13 @@ function Login() {
   );
 }
 
-function SignUp() {
-  return (
-    <form>
-      <label htmlFor="username">Username</label>
-      <input type="text" className="username"></input>
-      <label htmlFor="email">Email</label>
-      <input type="email" className="email"></input>
-      <label htmlFor="" />
-      <label>Password</label>
-      <input type="password" className="password"></input>
-    </form>
-  );
-}
-
-function Message() {
-  return (
-    <div>
-      <input type="textarea"></input>
-    </div>
-  );
-}
-
 ReactDOM.render(
   <Router>
-    <Navbar />
+    <NavBar />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/message" element={<Message />} />
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/about" element={<About />}></Route>
+      <Route path="/login" element={<Login />}></Route>
     </Routes>
   </Router>,
   document.getElementById("root"),
